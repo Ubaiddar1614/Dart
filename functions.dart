@@ -6,10 +6,14 @@ void main() {
   print(isEven(19));
   var result = factorial(5);
   print(result);
-  print(reverse(x: "Ubaid loves Ruhi "));
- print(isPalindrome("Home"));
+  print(reverse(x: "Tum chutiya ho "));
+  print(isPalindrome("Home"));
+  print("Largest: ${findLargest([1, 5, 99, 23, 77])}");
+  print("Fibonacci (7th): ${fibonacci(7)}");
+  print(greet("Ruhi"));
+  print(greet("Ubaid", greeting: "Salam"));
+  print("Average: ${calculateAverage([10, 20, 30, 40])}");
 }
-
 String hello(String name) {
   return "hello $name";
 }
@@ -33,7 +37,35 @@ int factorial(int n) {
 String reverse({required String x}) {
   return x.split('').reversed.join();
 }
-bool isPalindrome(String str)
-{
-    return str== reverse(x: str);
+
+bool isPalindrome(String str) {
+  return str == reverse(x: str);
+}
+
+int findLargest(List<int> numbers) {
+  if (numbers.isEmpty) throw ArgumentError("List cannot be empty");
+  int largest = numbers[0];
+  for (var number in numbers) {
+    if (number > largest) {
+      largest = number;
+    }
+  }
+  return largest;
+}
+
+int fibonacci(int n) {
+  if (n < 0) throw ArgumentError("Negative index not allowed");
+  if (n == 0) return 0;
+  if (n == 1) return 1;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+String greet(String name, {String greeting = "Hello"}) {
+  return "$greeting, $name!";
+}
+
+double calculateAverage(List<double> numbers) {
+  if (numbers.isEmpty) throw ArgumentError("List cannot be empty");
+  double sum = numbers.reduce((a, b) => a + b);
+  return sum / numbers.length;
 }

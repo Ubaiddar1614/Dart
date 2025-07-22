@@ -46,6 +46,7 @@ for(String fruit in fruits)
 }
 print("Length of list is ${fruits.length}");
 
+// ignore: equal_elements_in_set
 Set <int> setA ={1,1,2,3,4,5}; //set ignores duplicates diff between set and list
 print("original set $setA");
 setA.add(3);
